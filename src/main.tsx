@@ -27,15 +27,15 @@ const heroSlides = [
 const why = [
   ['Unbeatable bundles', 'Domain registration and 12-month hosting combined into one simple offer.'],
   ['Built for small businesses', 'Affordable launch packages for entrepreneurs, shops, consultants and service providers.'],
-  ['WHMCS-ready', 'Client area, cart links, invoices and hosting automation can plug in when WHMCS is ready.'],
+  ['Client support', 'Client area, cart links, invoices and hosting automation can plug in when WHMCS is ready.'],
   ['WebDevPro support', 'Website, hosting and domain guidance from one team instead of scattered providers.'],
 ];
 
 const faqs = [
   ['Can I buy only a domain?', 'The main WDP Hosting model is domain registration bundled with hosting, because every business needs both to go live properly.'],
-  ['Where will invoices and renewals happen?', 'The website is prepared to link to WHMCS on clients.wdphosting.com for orders, invoices, renewals and support tickets.'],
-  ['Is the R1200 package once-off?', 'It is a launch package that includes domain registration, 12 months hosting and a starter website. Renewal prices can be managed through WHMCS.'],
-  ['Can clients get their own hosting access?', 'Yes. Once WHMCS and DirectAdmin are connected, client accounts can be provisioned and managed professionally.'],
+  ['Where will invoices and renewals happen?', 'The website offers WhatsApp support on clients.wdphosting.com for orders, invoices, renewals and support tickets.'],
+  ['Is the R1200 package once-off?', 'It is a launch package that includes domain registration, 12 months hosting and a starter website. Renewals are confirmed by our team before you pay.'],
+  ['Can clients get their own hosting access?', 'Yes. Once the hosting setup is completed, client accounts can be provisioned and managed professionally.'],
 ];
 
 function useTyping(words: string[]) {
@@ -113,10 +113,10 @@ Please contact me within 24 hours.`);
       <header className="header">
         <a href="#home" className="brand"><img src={logo} alt="WDP Hosting logo"/><span>WDP Hosting</span></a>
         <nav className={menu ? 'nav open' : 'nav'}>
-          <a href="#packages">Packages</a><a href="#domains">Domains</a><a href="#websites">Websites</a><a href="#whmcs">WHMCS</a><a href="#support">Support</a>
-          <a className="login" href={`${WHMCS}/clientarea.php`}>Client Login</a>
+          <a href="#packages">Packages</a><a href="#domains">Domains</a><a href="#websites">Websites</a><a href="#whmcs">How it works</a><a href="#support">Support</a>
+          <a className="login" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Contact Support</a>
         </nav>
-        <a className="cta" href="#packages">Order Now</a>
+        <a className="cta" href="#packages">Enquire on WhatsApp</a>
         <button className="hamb" onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</button>
       </header>
 
@@ -145,7 +145,7 @@ Please contact me within 24 hours.`);
 
         <section id="packages" className="section">
           <div className="sectionHead"><p className="eyebrow">Shared hosting combo packages</p><h2>Domain registration + 12-month hosting</h2><p>These packages are designed to make money from hosting while giving clients an easy domain registration path.</p></div>
-          <div className="cards three">{plans.map((p)=><article className={p.featured?'plan featured':'plan'} key={p.name}><span className="tag">{p.tag}</span><h3>{p.name}</h3><div className="price">{p.price}<small>{p.period}</small></div><p className="meta">{p.storage} · {p.emails}</p><p className="bundle">{p.domains}</p><ul>{p.features.map(f=><li key={f}><Check size={16}/>{f}</li>)}</ul><a className="btn primary full" href={p.url}>Order Now</a></article>)}</div>
+          <div className="cards three">{plans.map((p)=><article className={p.featured?'plan featured':'plan'} key={p.name}><span className="tag">{p.tag}</span><h3>{p.name}</h3><div className="price">{p.price}<small>{p.period}</small></div><p className="meta">{p.storage} · {p.emails}</p><p className="bundle">{p.domains}</p><ul>{p.features.map(f=><li key={f}><Check size={16}/>{f}</li>)}</ul><a className="btn primary full" href={p.url}>Enquire on WhatsApp</a></article>)}</div>
         </section>
 
         <section id="websites" className="section webBundle">
@@ -159,18 +159,18 @@ Please contact me within 24 hours.`);
         </section>
 
         <section id="whmcs" className="section whmcs">
-          <div className="sectionHead"><p className="eyebrow">WHMCS integration-ready</p><h2>Prepared for billing, invoices and automation</h2><p>When your WHMCS is installed at clients.wdphosting.com, update the package IDs and these buttons will point directly to WHMCS cart pages.</p></div>
-          <div className="process"><div><ShoppingCart/><b>1. Client orders</b><p>Client chooses a bundle, not a domain-only purchase.</p></div><div><CreditCard/><b>2. WHMCS invoice</b><p>Invoice, client area and renewal management happen in WHMCS.</p></div><div><Server/><b>3. DirectAdmin account</b><p>Hosting can be provisioned from your reseller account.</p></div><div><Database/><b>4. Support & renewals</b><p>Tickets, invoices and renewals remain organized.</p></div></div>
-          <div className="portalButtons"><a className="btn ghost" href={`${WHMCS}/clientarea.php`}>Client Area</a><a className="btn ghost" href={`${WHMCS}/submitticket.php`}>Support Ticket</a><a className="btn ghost" href={`${WHMCS}/cart.php?a=add&domain=register`}>Register Domain with Bundle</a></div>
+          <div className="sectionHead"><p className="eyebrow">Customer assistance</p><h2>Simple ordering and personal assistance</h2><p>When your WHMCS is installed at clients.wdphosting.com, update the package IDs and these buttons will point directly to WHMCS cart pages.</p></div>
+          <div className="process"><div><ShoppingCart/><b>1. Client orders</b><p>Client chooses a bundle, not a domain-only purchase.</p></div><div><CreditCard/><b>2. Confirmed invoice</b><p>Our support team confirms payment details and assists with renewals.</p></div><div><Server/><b>3. DirectAdmin account</b><p>Hosting can be provisioned from your reseller account.</p></div><div><Database/><b>4. Support & renewals</b><p>Tickets, invoices and renewals remain organized.</p></div></div>
+          <div className="portalButtons"><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Contact Support</a><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Support Ticket</a><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Register Domain with Bundle</a></div>
         </section>
 
         <section id="support" className="section support">
-          <div><p className="eyebrow">FAQ</p><h2>Clear answers before WHMCS connection</h2></div>
+          <div><p className="eyebrow">FAQ</p><h2>Answers before you order</h2></div>
           <div className="faq">{faqs.map(([q,a],i)=><div key={q} className="faqItem"><button onClick={()=>setFaq(faq===i?-1:i)}><span>{q}</span><ChevronRight className={faq===i?'rot':''}/></button>{faq===i&&<p>{a}</p>}</div>)}</div>
         </section>
       </main>
 
-      <footer><div><img src={logo} alt="WDP Hosting"/><b>WDP Hosting</b><p>Domain registration, hosting and website launch packages.</p></div><div><b>Portal links</b><a href={`${WHMCS}/clientarea.php`}>Client Login</a><a href={`${WHMCS}/cart.php`}>Order Cart</a><a href={`${WHMCS}/submitticket.php`}>Support</a></div><div><b>Packages</b><a href="#packages">Hosting combos</a><a href="#websites">Website bundle</a><a href="#domains">Domain search</a></div><div><b>Credit</b><p>Web app designed by www.webdevpro.co.za · +27 812 159 792.</p></div></footer>
+      <footer><div><img src={logo} alt="WDP Hosting"/><b>WDP Hosting</b><p>Domain registration, hosting and website launch packages.</p></div><div><b>Portal links</b><a href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Contact Support</a><a href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Request a Quote</a><a href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Support</a></div><div><b>Packages</b><a href="#packages">Hosting combos</a><a href="#websites">Website bundle</a><a href="#domains">Domain search</a></div><div><b>Credit</b><p>Web app designed by www.webdevpro.co.za · +27 812 159 792.</p></div></footer>
 
       <button className="chatBtn" onClick={()=>setChat(!chat)}><MessageCircle/> Contact</button>
       {chat && <div className="chatPanel smartChat">
@@ -208,7 +208,7 @@ Please contact me within 24 hours.`);
           <a className="btn primary full" href={chatLink}>Send to WhatsApp</a>
         </div>}
 
-        <div className="chatFooter"><button onClick={()=>setChatStep('welcome')}>Menu</button><a href={`${WHMCS}/clientarea.php`}>Client portal</a></div>
+        <div className="chatFooter"><button onClick={()=>setChatStep('welcome')}>Menu</button><a href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">WhatsApp Support</a></div>
       </div>}
     </div>
   );
