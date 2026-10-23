@@ -2,7 +2,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Check, ChevronRight, Cloud, CreditCard, Database, Globe, Headphones, Lock, Menu, MessageCircle, Rocket, Search, Server, Shield, ShoppingCart, Sparkles, Star, X, Zap } from 'lucide-react';
 import './style.css';
-const logo = '/wdphost-logo.svg';
+// Self-hosted original WDP Hosting PNG copied from the older WDP deployment at build time.
+// The fallback SVG is the exact logo icon bundled with the original source archive.
+const logo = '/wdphost-logo-original.png';
 
 const WHMCS = 'https://clients.wdphosting.com';
 
@@ -62,7 +64,6 @@ function App() {
   const [menu, setMenu] = useState(false);
   const [slide, setSlide] = useState(0);
   const [domain, setDomain] = useState('');
-  const [domainResult, setDomainResult] = useState('');
   const [chat, setChat] = useState(false);
   const [faq, setFaq] = useState(0);
   const typed = useTyping(['Domain + Hosting', 'Website + Hosting', 'Website design and hosting', 'website demo before payment']);
@@ -74,13 +75,6 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  const domainSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    const clean = domain.trim().toLowerCase();
-    if (!clean) return;
-    setDomainResult(`${clean} is ready for a domain availability enquiry (not yet verified as available). Choose a bundle below to continue.`);
-    setTimeout(() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' }), 250);
-  };
 
   const [chatStep, setChatStep] = useState<'welcome'|'domain'|'hosting'|'website'|'appointment'|'learn'|'summary'>('welcome');
   const [lead, setLead] = useState({ name: '', phone: '', company: '', domain: '', package: 'R1200 Website + Domain + Hosting', time: '', message: '' });
@@ -111,7 +105,7 @@ Please contact me within 24 hours.`);
   return (
     <div className="site">
       <header className="header">
-        <a href="#home" className="brand"><img src={logo} alt="WDP Hosting logo"/><span>WDP Hosting</span></a>
+        <a href="#home" className="brand"><img src={logo} alt="Original WDP Hosting logo" onError={e=>{ e.currentTarget.onerror = null; e.currentTarget.src = '/wdphost-logo.svg'; }}/><span>WDP Hosting</span></a>
         <nav className={menu ? 'nav open' : 'nav'}>
           <a href="#packages">Packages</a><a href="#domains">Domains</a><a href="#websites">Websites</a><a href="#whmcs">How it works</a><a href="#support">Support</a>
           <a className="login" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Contact Support</a>
@@ -139,8 +133,9 @@ Please contact me within 24 hours.`);
 
         <section id="domains" className="searchSection">
           <div><p className="eyebrow">Domain search</p><h2>Search first. Then choose a hosting bundle.</h2><p>Domain-only purchases are not the focus. Every domain order should be attached to hosting or a website package.</p></div>
-          <form onSubmit={domainSearch} className="domainBox"><Search/><input value={domain} onChange={e=>setDomain(e.target.value)} placeholder="yourbusiness.co.za or yourbrand.com"/><button>Check Domain</button></form>
-          {domainResult && <div className="notice"><Check/> {domainResult}</div>}
+          <form action={`${WHMCS}/cart.php?a=add&domain=register`} method="post" target="_blank" className="domainBox" aria-label="Search live domains in WHMCS"><Search/><input name="query" value={domain} onChange={e=>setDomain(e.target.value)} placeholder="yourbusiness.co.za or yourbrand.com" aria-label="Domain name" autoComplete="off" required maxLength={253} pattern="(?=.{3,253}$)(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}" title="Enter a complete domain such as yourbusiness.co.za"/><button type="submit">Search Live Domains <ChevronRight size={18}/></button></form>
+          <p className="domainHelp">Opens the WHMCS live domain checker in a new tab. Results, availability and registration pricing are confirmed there, not on this page.</p>
+          <a className="domainDirectLink" href={`${WHMCS}/cart.php?a=add&domain=register`} target="_blank" rel="noopener noreferrer">Open WHMCS domain checker directly ↗</a>
         </section>
 
         <section id="packages" className="section">
@@ -159,7 +154,7 @@ Please contact me within 24 hours.`);
         </section>
 
         <section id="whmcs" className="section whmcs">
-          <div className="sectionHead"><p className="eyebrow">Customer assistance</p><h2>Simple ordering and personal assistance</h2><p>When your WHMCS is installed at clients.wdphosting.com, update the package IDs and these buttons will point directly to WHMCS cart pages.</p></div>
+          <div className="sectionHead"><p className="eyebrow">Customer assistance</p><h2>Simple ordering and personal assistance</h2><p>Domain searches open our WHMCS portal. Hosting purchases and client account automation require active WHMCS services and verified product IDs.</p></div>
           <div className="process"><div><ShoppingCart/><b>1. Client orders</b><p>Client chooses a bundle, not a domain-only purchase.</p></div><div><CreditCard/><b>2. Confirmed invoice</b><p>Our support team confirms payment details and assists with renewals.</p></div><div><Server/><b>3. DirectAdmin account</b><p>Hosting can be provisioned from your reseller account.</p></div><div><Database/><b>4. Support & renewals</b><p>Tickets, invoices and renewals remain organized.</p></div></div>
           <div className="portalButtons"><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Contact Support</a><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Support Ticket</a><a className="btn ghost" href="https://wa.me/27812159792?text=Hello%20WDP%20Hosting%2C%20please%20help%20me%20with%20my%20website%20or%20hosting">Register Domain with Bundle</a></div>
         </section>
