@@ -1,0 +1,17 @@
+{
+  "name": "WDP Hosting",
+  "short_name": "WDP Hosting",
+  "description": "Website design, domains, affordable hosting and business email.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b1f",
+  "theme_color": "#006dff",
+  "icons": [
+    {
+      "src": "/wdphost-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
