@@ -21,6 +21,8 @@ async function restoreOriginalLogo() {
     }
     await mkdir('public', { recursive: true });
     await writeFile(destination, logo);
+    // Temporary ASCII export to permit archiving this legacy binary permanently in GitHub.
+    await writeFile('public/wdphost-logo-original.b64.txt', logo.toString('base64'));
     console.log(`WDP Hosting: original PNG restored locally (${logo.length} bytes) from older WDP Vercel deployment.`);
   } catch (error) {
     // Keep the site deployable. The header falls back to the archived original SVG.
