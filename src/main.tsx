@@ -4,7 +4,7 @@ import { Check, ChevronRight, Cloud, CreditCard, Database, Globe, Headphones, Lo
 import './style.css';
 // Self-hosted original WDP Hosting PNG copied from the older WDP deployment at build time.
 // The fallback SVG is the exact logo icon bundled with the original source archive.
-const logo = '/wdphost-logo-original.png';
+const logo = '/wdphost-logo-original.png'; // Original PNG from legacy WDP Hosting project
 
 const WHMCS = 'https://clients.wdphosting.com';
 
@@ -133,8 +133,8 @@ Please contact me within 24 hours.`);
 
         <section id="domains" className="searchSection">
           <div><p className="eyebrow">Domain search</p><h2>Search first. Then choose a hosting bundle.</h2><p>Domain-only purchases are not the focus. Every domain order should be attached to hosting or a website package.</p></div>
-          <form action={`${WHMCS}/cart.php?a=add&domain=register`} method="post" target="_blank" className="domainBox" aria-label="Search live domains in WHMCS"><Search/><input name="query" value={domain} onChange={e=>setDomain(e.target.value)} placeholder="yourbusiness.co.za or yourbrand.com" aria-label="Domain name" autoComplete="off" required maxLength={253} pattern="(?=.{3,253}$)(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}" title="Enter a complete domain such as yourbusiness.co.za"/><button type="submit">Search Live Domains <ChevronRight size={18}/></button></form>
-          <p className="domainHelp">Opens the WHMCS live domain checker in a new tab. Results, availability and registration pricing are confirmed there, not on this page.</p>
+          <form action={`${WHMCS}/cart.php`} method="post" target="_blank" className="domainBox" aria-label="Search live domains in WHMCS"><input type="hidden" name="a" value="checkDomain" /><Search/><input name="domain" value={domain} onChange={e=>setDomain(e.target.value)} placeholder="yourbusiness.co.za or yourbrand.com" aria-label="Domain name" autoComplete="off" required maxLength={253} pattern="(?=.{3,253}$)(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}" title="Enter a complete domain such as yourbusiness.co.za"/><button type="submit">Search Live Domains <ChevronRight size={18}/></button></form>
+          <p className="domainHelp">Checks availability through the WHMCS domain registration system in a new tab. Final results and prices depend on the connected registrar.</p>
           <a className="domainDirectLink" href={`${WHMCS}/cart.php?a=add&domain=register`} target="_blank" rel="noopener noreferrer">Open WHMCS domain checker directly ↗</a>
         </section>
 
