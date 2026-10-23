@@ -2,3 +2,25 @@
 @media(max-width:900px){.nav{display:none}.nav.open{display:flex;position:absolute;top:78px;left:5%;right:5%;padding:20px;flex-direction:column;background:rgba(5,10,20,.96);border:1px solid var(--line);border-radius:22px}.hamb{display:block}.cta{display:none}.hero,.searchSection,.split,.support{grid-template-columns:1fr}.hero{padding-top:44px}.three,.process,footer{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.domainBox{border-radius:24px;align-items:stretch;flex-direction:column}.domainBox input{width:100%}.heroCard{padding:28px}.section{padding:58px 5%}}
 .smartChat{width:min(430px,calc(100% - 32px));padding:18px}.botHead{display:flex;align-items:center;gap:12px;margin-bottom:12px}.botHead h3{margin:0}.botHead small{color:#9db2c9}.botAvatar{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),var(--cyan));box-shadow:0 0 34px rgba(38,230,255,.28)}.chatBubble{padding:13px 14px;border-radius:18px;margin:10px 0;line-height:1.55}.chatBubble.bot{background:rgba(255,255,255,.08);border:1px solid var(--line);color:#dcecff}.quickGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.quickGrid button,.chatFooter button{border:1px solid var(--line);background:rgba(255,255,255,.07);color:#eef7ff;border-radius:15px;padding:11px;font-weight:800;cursor:pointer;text-align:left}.quickGrid button:hover,.chatFooter button:hover{border-color:rgba(38,230,255,.7);transform:translateY(-1px)}.leadFormMini{display:grid;gap:9px;max-height:58vh;overflow:auto;padding-right:4px}.leadFormMini label{font-size:12px;font-weight:900;color:#aac4da;display:grid;gap:5px}.leadFormMini input,.leadFormMini select,.leadFormMini textarea{width:100%;background:#0d1b30;color:white;border:1px solid var(--line);border-radius:13px;padding:11px;outline:0}.leadFormMini textarea{min-height:68px;resize:vertical}.leadFormMini select option{background:#0d1b30;color:white}.chatFooter{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:10px;margin-top:12px}.chatFooter a{color:var(--cyan);font-weight:900}
 @media(max-width:520px){.quickGrid{grid-template-columns:1fr}.chatPanel{right:16px;bottom:82px}}
+
+
+/* Restore the original WDP Hosting typography used by the archived source. */
+:root, body, button, input, select, textarea { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+h1, h2, h3, .brand, .price, .pill, .sectionHead h2, .searchSection h2, .heroCard h2 {
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+}
+.hero h1 { letter-spacing: -0.052em; line-height: 1.055; font-weight: 800; }
+.section h2, .searchSection h2 { letter-spacing: -0.043em; line-height: 1.12; font-weight: 800; }
+.plan h3, .why h3, .heroCard h2 { letter-spacing: -0.025em; line-height: 1.24; font-weight: 700; }
+.brand { font-weight: 800; letter-spacing: -0.035em; }
+.brand img { object-fit: contain; background: transparent; }
+p, li { line-height: 1.7; }
+.domainBox button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+.searchSection .domainHelp { max-width: 760px; margin: 16px auto 4px; font-size: 0.92rem; line-height: 1.6; color: #c8d7e7; }
+.domainDirectLink { display: inline-block; margin-top: 8px; color: #72e9fa; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.domainDirectLink:hover { color: #fff; }
+@media(max-width:650px){
+  .hero h1 { letter-spacing: -0.044em; line-height: 1.09; }
+  .domainBox button { gap: 4px; }
+  .domainBox button svg { display: none; }
+}
